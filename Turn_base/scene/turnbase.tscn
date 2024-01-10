@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyrcq42u8wlg0"]
+
+[ext_resource type="Texture2D" uid="uid://o22vux85mj0r" path="res://Turn_base/asset/battleback1_0.png" id="1_4tum5"]
+[ext_resource type="Script" path="res://Turn_base/script/turnbase.gd" id="1_nca5i"]
+[ext_resource type="Texture2D" uid="uid://mg58x6xlc714" path="res://Turn_base/asset/knight.png" id="2_nfo86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4asnp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0inlu"]
+bg_color = Color(0, 1, 1, 1)
+
+[node name="Turnbase" type="Control"]
+layout_mode = 3
+anchor_top = 0.248
+anchor_right = 1.0
+anchor_bottom = 0.809
+offset_top = -19.696
+offset_bottom = 0.0319824
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nca5i")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4tum5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 84.0
+offset_top = -270.0
+offset_right = -89.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_4asnp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0inlu")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Health" type="Label" parent="VBoxContainer/HealthBar"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = -48.0
+offset_right = 306.0
+offset_bottom = -3.0
+theme_override_font_sizes/font_size = 30
+text = "HP 50/100"
+
+[node name="NameEnemy" type="Label" parent="VBoxContainer/HealthBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -50.0
+offset_right = 88.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 30
+text = "Name"
+
+[node name="Enemy" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Enemy"]
+position = Vector2(227, 257)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nfo86")
+
+[node name="Player" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player"]
+layout_mode = 0
+offset_right = 674.0
+offset_bottom = 67.0
+theme_override_constants/separation = 40
+
+[node name="Attack" type="Button" parent="Player/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Text_Attack" type="Label" parent="Player/HBoxContainer/Attack"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 3.0
+offset_right = 200.0
+offset_bottom = 48.0
+scale = Vector2(1.00823, 1)
+theme_override_font_sizes/font_size = 20
+text = "Attack
+"
+
+[node name="Time" type="Label" parent="Player/HBoxContainer/Attack"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 29.0
+offset_right = 159.0
+offset_bottom = 55.0
+text = "0.5s"
+
+[node name="Timer" type="Timer" parent="Player/HBoxContainer/Attack"]
+
+[node name="Run" type="Button" parent="Player/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Run"
