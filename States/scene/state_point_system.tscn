@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjaiqfjfhlq7y"]
+
+[ext_resource type="Script" path="res://States/script/State_point_system.gd" id="1_herqv"]
+
+[node name="State_point_system" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+script = ExtResource("1_herqv")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.053
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="State_Point" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "STATE"
+
+[node name="Decrease" type="Button" parent="Container"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "-"
+
+[node name="Count" type="Label" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "COUNT"
+
+[node name="Increase" type="Button" parent="Container"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "+"
+
+[connection signal="pressed" from="Container/Decrease" to="." method="_on_decrease_pressed"]
+[connection signal="pressed" from="Container/Increase" to="." method="_on_increase_pressed"]
