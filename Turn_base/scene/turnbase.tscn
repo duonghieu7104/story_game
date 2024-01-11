@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyrcq42u8wlg0"]
+[gd_scene load_steps=9 format=3 uid="uid://cyrcq42u8wlg0"]
 
 [ext_resource type="Texture2D" uid="uid://o22vux85mj0r" path="res://Turn_base/asset/battleback1_0.png" id="1_4tum5"]
 [ext_resource type="Script" path="res://Turn_base/script/turnbase.gd" id="1_nca5i"]
@@ -19,6 +19,20 @@ expand_margin_bottom = 5.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0inlu"]
 bg_color = Color(0, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_732u7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtrjt"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7mjj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Turnbase" type="Control"]
 layout_mode = 3
 anchor_top = 0.248
@@ -35,6 +49,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4tum5")
@@ -46,7 +64,7 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 84.0
-offset_top = -270.0
+offset_top = -235.0
 offset_right = -89.0
 offset_bottom = 297.0
 grow_horizontal = 2
@@ -59,7 +77,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/background = SubResource("StyleBoxFlat_4asnp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0inlu")
 step = 1.0
-value = 50.0
+value = 30.0
 show_percentage = false
 
 [node name="Health" type="Label" parent="VBoxContainer/HealthBar"]
@@ -94,55 +112,92 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -84.0
-offset_bottom = -10.0
+offset_left = 5.0
+offset_top = -56.0
+offset_right = -6.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="Player"]
-visible = false
+[node name="Action" type="HBoxContainer" parent="Player"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Player"]
-layout_mode = 0
-offset_right = 674.0
-offset_bottom = 67.0
 theme_override_constants/separation = 40
 
-[node name="Attack" type="Button" parent="Player/HBoxContainer"]
+[node name="Attack" type="Button" parent="Player/Action"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_732u7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dtrjt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_x7mjj")
 
-[node name="Text_Attack" type="Label" parent="Player/HBoxContainer/Attack"]
-layout_mode = 0
-offset_left = 107.0
-offset_top = 3.0
-offset_right = 200.0
-offset_bottom = 48.0
+[node name="Text_Attack" type="Label" parent="Player/Action/Attack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -22.5
+offset_right = 32.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.00823, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "Attack
 "
 
-[node name="Time" type="Label" parent="Player/HBoxContainer/Attack"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = 29.0
-offset_right = 159.0
-offset_bottom = 55.0
+[node name="Time" type="Label" parent="Player/Action/Attack"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -26.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "0.5s"
 
-[node name="Timer" type="Timer" parent="Player/HBoxContainer/Attack"]
+[node name="Timer" type="Timer" parent="Player/Action/Attack"]
 
-[node name="Run" type="Button" parent="Player/HBoxContainer"]
+[node name="Run" type="Button" parent="Player/Action"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_732u7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dtrjt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dtrjt")
 text = "Run"
+
+[node name="TextHere" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -22.5
+offset_right = 82.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Text Here!!!"
+
+[connection signal="pressed" from="Player/Action/Run" to="." method="_on_run_pressed"]
