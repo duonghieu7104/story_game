@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://q0jysaahq5dr"]
+
+[ext_resource type="Script" path="res://GPT_create_story/script/gpt_create_story.gd" id="1_0druh"]
+
+[node name="Gpt_create_story" type="Node"]
+script = ExtResource("1_0druh")
