@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://q0jysaahq5dr"]
 
-[ext_resource type="Script" path="res://GPT_create_story/script/gpt_chat.gd" id="1_wb0nh"]
+[ext_resource type="Script" path="res://GPT_chat/script/gpt_chat.gd" id="1_lwjsh"]
 
 [node name="Gpt_create_story" type="Node"]
-script = ExtResource("1_wb0nh")
+script = ExtResource("1_lwjsh")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
