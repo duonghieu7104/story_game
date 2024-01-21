@@ -1,15 +1,14 @@
-class_name Inventory
-
 extends Resource
 
-@export var items = []
+class_name Inventory
+
+@export var inventory = []
 
 #them iteam vao list
-func add_item(item):
-	items.append(item)
+func add_item_to_Inventory(item):
+	inventory.append(item)
 
 #tao iteam
-func generate_iteam():
-	var item = Item.new()
-	var randomnumber : RandomNumberGenerator
-	var types = ["sword", "helmet", "amor", "leg amor"]
+func generate_item(type : String, key : String, value : int):
+	var new_item = Item.new(type, key, value)
+	add_item_to_Inventory(new_item)
