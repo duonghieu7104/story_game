@@ -31,8 +31,9 @@ func load_ui_inventory():
 				continue
 			temp += str(key) + ": " + str(weapon[key]) + "\n"
 		instantiate.stats_view.text = temp
+		var path = weapon["texture_path"]
+		instantiate.texture_view.texture = load(path)
 		print(temp)
-		temp = ""
 
 func remove_all_children(parent):
 	var children = parent.get_children()

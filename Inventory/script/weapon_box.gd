@@ -3,6 +3,7 @@ extends Button
 @onready var weapon_view = $Weapon_view
 @onready var btn_view = $Btn_view
 @onready var stats_view = $Weapon_view/Stats
+@onready var texture_view = $Weapon_view/Texture
 
 signal equip (index_ivt_ui, index_ivt_list)
 

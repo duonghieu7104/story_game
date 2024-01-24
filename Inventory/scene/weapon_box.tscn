@@ -34,7 +34,6 @@ mouse_filter = 1
 [node name="Texture" type="Sprite2D" parent="Weapon_view"]
 position = Vector2(35, 31)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_hwxv7")
 
 [node name="Stats" type="Label" parent="Weapon_view"]
 layout_mode = 0

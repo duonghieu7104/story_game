@@ -4,9 +4,11 @@ extends Node
 var save_file_path = "user://save_"
 var save_file_name_inventory = "inventory.tres"
 var save_file_name_stats = "stats.tres"
+var save_file_name_coin = "coin.tres"
 
 var inventory = Inventory_weapon.new()
 var stats = Stats.new()
+var coin = Coin.new()
 
 func generate_item(type : String, texture_path : String, stats : Dictionary):
 	inventory.generate_item(type, texture_path, stats)
