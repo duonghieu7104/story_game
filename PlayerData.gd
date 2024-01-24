@@ -8,8 +8,8 @@ var save_file_name_stats = "stats.tres"
 var inventory = Inventory_weapon.new()
 var stats = Stats.new()
 
-func generate_item(type : String, stats : Dictionary):
-	inventory.generate_item(type, stats)
+func generate_item(type : String, texture_path : String, stats : Dictionary):
+	inventory.generate_item(type, texture_path, stats)
 
 func save_data():
 	ResourceSaver.save(inventory, save_file_path + save_file_name_inventory)

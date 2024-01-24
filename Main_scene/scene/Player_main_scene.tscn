@@ -82,17 +82,46 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
+[node name="Equipped" type="Control" parent="main_scene/Inventory"]
+layout_mode = 1
+anchor_right = 0.547
+anchor_bottom = 1.0
+offset_right = 0.0989685
+offset_bottom = 4.0
+
+[node name="Slot1" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
+position = Vector2(48, 196)
+scale = Vector2(0.6, 0.6)
+
+[node name="Slot2" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
+position = Vector2(274, 191)
+scale = Vector2(0.6, 0.6)
+
+[node name="Slot3" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
+position = Vector2(151, 64)
+scale = Vector2(0.6, 0.6)
+
+[node name="Slot4" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
+position = Vector2(92, 441)
+scale = Vector2(0.6, 0.6)
+
+[node name="Slot5" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
+position = Vector2(239, 441)
+scale = Vector2(0.6, 0.6)
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 483.0
-offset_right = 368.0
-offset_bottom = 671.0
+offset_left = 90.0
+offset_top = 9.0
+offset_right = 151.0
+offset_bottom = 71.0
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 70.0
+offset_bottom = 70.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
