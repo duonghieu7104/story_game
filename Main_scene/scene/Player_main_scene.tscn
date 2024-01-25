@@ -1,10 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmx4ncm8ccrvp"]
+[gd_scene load_steps=10 format=3 uid="uid://dmx4ncm8ccrvp"]
 
 [ext_resource type="Script" path="res://Main_scene/script/Player_main_scene.gd" id="1_c2k32"]
 [ext_resource type="Texture2D" uid="uid://dserbs8ca8osp" path="res://icon.svg" id="2_1xprs"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_etiu0"]
-texture = ExtResource("2_1xprs")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhhnj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1geyh"]
+bg_color = Color(1, 0.0666667, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6488i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jraqa"]
+bg_color = Color(0, 0.85098, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5an3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndk0r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4myuv"]
+bg_color = Color(0.333333, 0.631373, 0.631373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [node name="Player_main_scene" type="Control"]
 layout_mode = 3
@@ -15,118 +72,257 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c2k32")
 
-[node name="change_scene" type="HBoxContainer" parent="."]
+[node name="Player_scene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 19.0
+offset_top = 50.0
+offset_right = -14.0
+offset_bottom = 197.0
+grow_horizontal = 2
+
+[node name="Avatar" type="TextureRect" parent="Player_scene"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_1xprs")
+
+[node name="Bar" type="VBoxContainer" parent="Player_scene"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+offset_left = 147.0
+offset_top = 36.0
+offset_right = 587.0
+offset_bottom = 144.0
+theme_override_constants/separation = 15
+
+[node name="Health" type="ProgressBar" parent="Player_scene/Bar"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lhhnj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1geyh")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Mana" type="ProgressBar" parent="Player_scene/Bar"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6488i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jraqa")
+step = 1.0
+value = 70.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player_scene/Bar"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Logo_Coin" type="TextureRect" parent="Player_scene/Bar/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Coin" type="Label" parent="Player_scene/Bar/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.87451, 0, 1)
+text = "Coin
+"
+
+[node name="Tab_Menu" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="Inventory" type="Control" parent="Tab_Menu"]
+layout_mode = 2
+
+[node name="Equipped" type="Control" parent="Tab_Menu/Inventory"]
+layout_mode = 1
+anchor_right = 0.547
+anchor_bottom = 1.0
+offset_top = 65.0
+offset_right = -79.08
+offset_bottom = -30.0
+
+[node name="Player_Eqiupped" type="VBoxContainer" parent="Tab_Menu/Inventory/Equipped"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 300.0
+offset_top = 42.0
 offset_right = 5.0
-offset_bottom = -808.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 20
 
-[node name="Hanh trang" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_styles/pressed = SubResource("StyleBoxTexture_etiu0")
-
-[node name="Story" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Texture_equipped" type="Control" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="Diary" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
+[node name="TextureRect" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 114.0
+offset_right = 154.0
+offset_bottom = 242.0
+scale = Vector2(0.4, 0.4)
+
+[node name="TextureRect2" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+layout_mode = 2
+offset_left = 175.0
+offset_top = 114.0
+offset_right = 303.0
+offset_bottom = 242.0
+scale = Vector2(0.4, 0.4)
+
+[node name="TextureRect3" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+layout_mode = 2
+offset_left = 100.0
+offset_top = 14.0
+offset_right = 228.0
+offset_bottom = 142.0
+scale = Vector2(0.4, 0.4)
+
+[node name="TextureRect4" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+layout_mode = 2
+offset_left = 175.0
+offset_top = 214.0
+offset_right = 303.0
+offset_bottom = 342.0
+scale = Vector2(0.4, 0.4)
+
+[node name="TextureRect5" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 214.0
+offset_right = 154.0
+offset_bottom = 342.0
+scale = Vector2(0.4, 0.4)
+
+[node name="Out" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_x5an3")
+text = "Bỏ Trang Bị
+"
+
+[node name="Stats" type="Panel" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="Map" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Weapon_inventory" type="TabContainer" parent="Tab_Menu/Inventory"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 23.0
+offset_right = 616.0
+offset_bottom = 853.0
+
+[node name="Weapon" type="ScrollContainer" parent="Tab_Menu/Inventory/Weapon_inventory"]
 layout_mode = 2
 
-[node name="Pet" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="Tab_Menu/Inventory/Weapon_inventory/Weapon"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Material" type="TabBar" parent="Tab_Menu/Inventory/Weapon_inventory"]
+visible = false
 layout_mode = 2
 
-[node name="Chat" type="Button" parent="change_scene"]
-custom_minimum_size = Vector2(100, 0)
+[node name="Story" type="Control" parent="Tab_Menu"]
+visible = false
 layout_mode = 2
 
-[node name="main_scene" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 368.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Inventory" type="Control" parent="main_scene"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = 85.0
-offset_right = -26.0
-offset_bottom = -46.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="main_scene/Inventory"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 342.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="main_scene/Inventory/ScrollContainer"]
+[node name="Map" type="Control" parent="Tab_Menu"]
+visible = false
 layout_mode = 2
-theme_override_constants/separation = 10
 
-[node name="Equipped" type="Control" parent="main_scene/Inventory"]
-layout_mode = 1
-anchor_right = 0.547
-anchor_bottom = 1.0
-offset_right = 0.0989685
-offset_bottom = 4.0
+[node name="Craft" type="Control" parent="Tab_Menu"]
+visible = false
+layout_mode = 2
 
-[node name="Slot1" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
-position = Vector2(48, 196)
-scale = Vector2(0.6, 0.6)
-
-[node name="Slot2" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
-position = Vector2(274, 191)
-scale = Vector2(0.6, 0.6)
-
-[node name="Slot3" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
-position = Vector2(151, 64)
-scale = Vector2(0.6, 0.6)
-
-[node name="Slot4" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
-position = Vector2(92, 441)
-scale = Vector2(0.6, 0.6)
-
-[node name="Slot5" type="Sprite2D" parent="main_scene/Inventory/Equipped"]
-position = Vector2(239, 441)
-scale = Vector2(0.6, 0.6)
+[node name="AI Chat" type="Control" parent="Tab_Menu"]
+visible = false
+layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 9.0
-offset_right = 151.0
-offset_bottom = 71.0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "generate"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 70.0
-offset_bottom = 70.0
+offset_left = 91.0
+offset_top = 2.0
+offset_right = 134.0
+offset_bottom = 33.0
+text = "save"
+
+[node name="Stop_touch" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ndk0r")
+
+[node name="Popup_Notif" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 317.0
+offset_top = 609.0
+offset_right = 589.0
+offset_bottom = 719.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4myuv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup_Notif"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Text" type="Label" parent="Popup_Notif/VBoxContainer"]
+layout_mode = 2
+text = "Bạn muốn trang bị cho tay 
+trái hay phải"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup_Notif/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Slot1" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "Trái"
+
+[node name="Slot2" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "Phải"
+
+[node name="Cancel" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "Hủy"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

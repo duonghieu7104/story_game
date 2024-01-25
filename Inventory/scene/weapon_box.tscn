@@ -1,26 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr4vmjlixvdei"]
+[gd_scene load_steps=7 format=3 uid="uid://cr4vmjlixvdei"]
 
 [ext_resource type="Script" path="res://Inventory/script/weapon_box.gd" id="1_6wply"]
 [ext_resource type="Texture2D" uid="uid://dserbs8ca8osp" path="res://icon.svg" id="1_hwxv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsnnd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh8rh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vioqf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1cvp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Weapon_box" type="Button"]
-custom_minimum_size = Vector2(220, 60)
-offset_right = 220.0
+custom_minimum_size = Vector2(320, 80)
+offset_right = 298.0
 offset_bottom = 60.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wsnnd")
-flat = true
 script = ExtResource("1_6wply")
-
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
 
 [node name="Weapon_view" type="Control" parent="."]
 layout_mode = 1
@@ -31,18 +30,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Texture" type="Sprite2D" parent="Weapon_view"]
-position = Vector2(35, 31)
-scale = Vector2(0.3, 0.3)
-
 [node name="Stats" type="Label" parent="Weapon_view"]
 layout_mode = 0
-offset_left = 75.0
+offset_left = 91.0
 offset_top = 6.0
-offset_right = 203.0
+offset_right = 277.0
 offset_bottom = 55.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="TextureRect" parent="Weapon_view"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 21.0
+offset_right = 63.0
+offset_bottom = 61.0
+scale = Vector2(0.3, 0.3)
 
 [node name="Btn_view" type="Control" parent="."]
 visible = false
@@ -61,29 +66,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 17.0
 offset_top = 15.0
-offset_right = -12.0
+offset_right = -19.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sell" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_xh8rh")
 text = "Sell"
 
 [node name="Equip" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_vioqf")
 text = "Trang bi"
 
 [node name="Cancel" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_d1cvp")
 text = "Cancel"
 
-[node name="Eqipped" type="Sprite2D" parent="."]
+[node name="Equipped" type="TextureRect" parent="."]
 visible = false
-position = Vector2(220, 31)
+layout_mode = 0
+offset_left = 290.0
+offset_top = 51.0
+offset_right = 418.0
+offset_bottom = 179.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_hwxv7")
 

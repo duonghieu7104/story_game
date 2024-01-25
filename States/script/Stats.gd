@@ -13,8 +13,8 @@ class_name Stats
 @export var cridamge : int = 10
 
 #Stats point
-@export var health : int
-@export var strength : int
-@export var intelligence : int
-@export var agility : int
+@export var health_point : int
+@export var strength_point : int
+@export var intelligence_point : int
+@export var agility_point : int
 

@@ -5,7 +5,10 @@ extends Button
 @onready var stats_view = $Weapon_view/Stats
 @onready var texture_view = $Weapon_view/Texture
 
-signal equip (index_ivt_ui, index_ivt_list)
+@export var id : int
+@export var can_equip = true
+
+signal equip (index_ivt)
 
 func _ready():
 	pass
@@ -24,5 +27,5 @@ func _on_cancel_pressed():
 
 
 func _on_equip_pressed(): #equip
-	pass # Replace with function body.
+	emit_signal("equip", id)
 
