@@ -51,7 +51,7 @@ func upload_texture_equipped():
 		ui_equipped.get_child(i).texture = load(path)
 
 func _on_button_pressed():
-	PlayerData.inventory.generate_item("oh_sword", "res://icon.svg", {"atk" : 5})
+	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", {"atk" : 5})
 	remove_all_children(ui_inventory)
 	load_ui_inventory()
 
@@ -66,23 +66,23 @@ func equip_weapon_sword(index_ivt):
 		$Popup_Notif.visible = true
 
 func _on_slot_1_pressed():
-	equip_sword("slot1")
+	pass
 
 func _on_slot_2_pressed():
-	equip_sword("slot2")
+	pass
 
-func equip_sword(text : String):
-	if PlayerData.inventory.dict_select_equip[text] == -1:
-		PlayerData.inventory.dict_select_equip[text] = id
-		upload_texture_equipped()
-		PlayerData.load_stats_from_equip()
-	else:
-		PlayerData.inventory.dict_select_equip[text] = -1
-		PlayerData.load_stats_from_equip()
-		PlayerData.inventory.dict_select_equip[text]  = id
-		upload_texture_equipped()
-	$Stop_touch.visible = false
-	$Popup_Notif.visible = false
+#func equip_sword(text : String):
+#	if PlayerData.inventory.dict_select_equip[text] == -1:
+#		PlayerData.inventory.dict_select_equip[text] = id
+#		upload_texture_equipped()
+#		PlayerData.load_stats_from_equip()
+#	else:
+#		PlayerData.inventory.dict_select_equip[text] = -1
+#		PlayerData.load_stats_from_equip()
+#		PlayerData.inventory.dict_select_equip[text]  = id
+#		upload_texture_equipped()
+#	$Stop_touch.visible = false
+#	$Popup_Notif.visible = false
 
 func _on_cancel_pressed():
 	$Stop_touch.visible = false
