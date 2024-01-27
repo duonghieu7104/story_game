@@ -12,8 +12,8 @@ var stats = Stats.new()
 var coin = Coin.new()
 
 #Func item
-func generate_item(type : String, texture_path : String, rank: int, stats : Dictionary):
-	inventory.generate_item(type, texture_path, rank, stats)
+func generate_item(type : String, texture_path : String, rank: int, equipped : bool,stats : Dictionary):
+	inventory.generate_item(type, texture_path, rank, equipped,stats)
 
 func save_data():
 	ResourceSaver.save(inventory, save_file_path + save_file_name_inventory)

@@ -24,11 +24,12 @@ func add_item_to_Inventory(item):
 #	var new_item = Weapon.new(type, key1, value1, key2, value2)
 #	add_item_to_Inventory(new_item)
 
-func generate_item(type : String, texture_path : String, rank : int,stats : Dictionary):
+func generate_item(type : String, texture_path : String, rank : int, equipped : bool,stats : Dictionary):
 	var new_item : Dictionary = {}
 	new_item["type"] = type
 	new_item["texture_path"] = texture_path
 	new_item["rank"] = rank
+	new_item["equipped"] = equipped
 	for key in stats:
 		new_item[key] = stats[key]
 	add_item_to_Inventory(new_item)

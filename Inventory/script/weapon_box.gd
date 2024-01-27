@@ -4,9 +4,8 @@ extends Button
 @onready var btn_view = $Btn_view
 @onready var stats_view = $Weapon_view/Stats
 @onready var texture_view = $Weapon_view/Texture
-
+@onready var icon_equip = $Equipped
 @export var id : int
-@export var can_equip = true
 
 signal equip (index_ivt)
 
