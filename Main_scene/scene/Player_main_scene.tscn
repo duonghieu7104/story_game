@@ -41,27 +41,14 @@ expand_margin_bottom = 4.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jraqa"]
 bg_color = Color(0, 0.85098, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5an3"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndk0r"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4myuv"]
-bg_color = Color(0.333333, 0.631373, 0.631373, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30nsc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ve17"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Player_main_scene" type="Control"]
 layout_mode = 3
@@ -145,73 +132,111 @@ layout_mode = 2
 layout_mode = 1
 anchor_right = 0.547
 anchor_bottom = 1.0
-offset_top = 65.0
-offset_right = -79.08
-offset_bottom = -30.0
+offset_left = 19.0
+offset_top = 76.0
+offset_right = -16.08
+offset_bottom = -19.0
 
 [node name="Player_Eqiupped" type="VBoxContainer" parent="Tab_Menu/Inventory/Equipped"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 42.0
+offset_left = -4.0
+offset_top = 25.0
 offset_right = 5.0
-offset_bottom = 1.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Texture_equipped" type="Control" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
+[node name="Texture_equipped" type="HBoxContainer" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+[node name="Texture" type="VBoxContainer" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
-offset_left = 26.0
-offset_top = 114.0
-offset_right = 154.0
-offset_bottom = 242.0
-scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+[node name="TextureRect" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-offset_left = 175.0
-offset_top = 114.0
-offset_right = 303.0
-offset_bottom = 242.0
-scale = Vector2(0.4, 0.4)
+expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+[node name="TextureRect2" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-offset_left = 100.0
-offset_top = 14.0
-offset_right = 228.0
-offset_bottom = 142.0
-scale = Vector2(0.4, 0.4)
+expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+[node name="TextureRect3" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-offset_left = 175.0
-offset_top = 214.0
-offset_right = 303.0
-offset_bottom = 342.0
-scale = Vector2(0.4, 0.4)
+expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+[node name="TextureRect4" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-offset_left = 26.0
-offset_top = 214.0
-offset_right = 154.0
-offset_bottom = 342.0
-scale = Vector2(0.4, 0.4)
+expand_mode = 1
 
-[node name="Out" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
+[node name="TextureRect5" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Stats" type="VBoxContainer" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="unequipped" type="HBoxContainer" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxFlat_x5an3")
-text = "Bỏ Trang Bị
-"
+
+[node name="unslot1" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped"]
+custom_minimum_size = Vector2(63, 0)
+layout_mode = 2
+
+[node name="unslot2" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped"]
+custom_minimum_size = Vector2(63, 0)
+layout_mode = 2
+
+[node name="unslot3" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped"]
+custom_minimum_size = Vector2(63, 0)
+layout_mode = 2
+
+[node name="unslot4" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped"]
+custom_minimum_size = Vector2(63, 0)
+layout_mode = 2
+
+[node name="unslot5" type="Button" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped"]
+custom_minimum_size = Vector2(63, 0)
+layout_mode = 2
 
 [node name="Stats" type="Panel" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped"]
 custom_minimum_size = Vector2(0, 300)
@@ -219,10 +244,10 @@ layout_mode = 2
 
 [node name="Weapon_inventory" type="TabContainer" parent="Tab_Menu/Inventory"]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 23.0
-offset_right = 616.0
-offset_bottom = 853.0
+offset_left = 353.0
+offset_top = 31.0
+offset_right = 620.0
+offset_bottom = 861.0
 
 [node name="Weapon" type="ScrollContainer" parent="Tab_Menu/Inventory/Weapon_inventory"]
 layout_mode = 2
@@ -276,53 +301,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ndk0r")
 
-[node name="Popup_Notif" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 317.0
-offset_top = 609.0
-offset_right = 589.0
-offset_bottom = 719.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4myuv")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup_Notif"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 280.0
+offset_top = 348.0
+offset_right = -11.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_styles/panel = SubResource("StyleBoxFlat_30nsc")
 
-[node name="Text" type="Label" parent="Popup_Notif/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 249.0
+offset_right = -26.0
+offset_bottom = -446.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Bạn muốn trang bị cho tay 
-trái hay phải"
+text = "Hãy ấn nút bỏ trang bị để tiếp tục"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Popup_Notif/VBoxContainer"]
+[node name="Ok" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/separation = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_6ve17")
+text = "OK"
 
-[node name="Slot1" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-text = "Trái"
-
-[node name="Slot2" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-text = "Phải"
-
-[node name="Cancel" type="Button" parent="Popup_Notif/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-text = "Hủy"
+[node name="Text_notif" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Slot1" to="." method="_on_slot_1_pressed"]
-[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Slot2" to="." method="_on_slot_2_pressed"]
-[connection signal="pressed" from="Popup_Notif/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Ok" to="." method="_on_ok_pressed"]

@@ -15,7 +15,7 @@ func _ready():
 	add_child(request)
 	request.connect("request_completed", _on_request_completed)
 	
-	dialogue_request("request")
+	dialogue_request("chào")
 
 func dialogue_request(player_dialogue):
 	messages.append({

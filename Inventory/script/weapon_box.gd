@@ -28,4 +28,6 @@ func _on_cancel_pressed():
 
 func _on_equip_pressed(): #equip
 	emit_signal("equip", id)
+	weapon_view.visible = true
+	btn_view.visible = false
 
