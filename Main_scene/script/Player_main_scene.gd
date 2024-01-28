@@ -3,11 +3,14 @@ extends Control
 @onready var ui_inventory = $Tab_Menu/Inventory/Weapon_inventory/Weapon/VBoxContainer
 @onready var ui_equipped = $Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture
 @onready var ui_stats_view = $Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Stats
+@onready var set_coin = $Player_scene/Bar/HBoxContainer/Coin
+
 var box_weapon = preload("res://Inventory/scene/weapon_box.tscn")
 var id : int
 
 func _ready():
 	PlayerData.load_data()
+	set_coin.text = str(PlayerData.coin.coin)
 	load_ui_inventory()
 	upload_texture_equipped_n_stats_view()
 	if ResourceLoader.exists("user://save_inventory.tres"):
@@ -26,6 +29,7 @@ func load_ui_inventory():
 		instantiate.id = i
 		instantiate.icon_equip.visible = weapon["equipped"]
 		ui_inventory.get_child(i).connect("equip", equip_weapon_sword)
+		ui_inventory.get_child(i).connect("sell", sell_iteam)
 		var temp : String = ""
 		for key in weapon.keys():
 			if key == "texture_path" || key == "type":
@@ -58,12 +62,11 @@ func upload_texture_equipped_n_stats_view():
 			temp += str(key_dict) + ": " + str(weapon[key_dict]) + " "
 		ui_equipped.get_child(i).texture = load(path)
 		ui_stats_view.get_child(i).text = temp
-		PlayerData.load_stats_from_equip()
 
 func _on_button_pressed():
 	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"atk" : 5})
-	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"atk" : 5})
-	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"spd" : 5})
+	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"def" : 6})
+	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"spd" : 7})
 	load_ui_inventory()
 
 func _on_button_2_pressed():
@@ -73,8 +76,15 @@ func equip_in_slot(text : String):
 	var ok = PlayerData.inventory.inventory_weapon[id]["equipped"]
 	print(!ok)
 	if !ok:
+		if PlayerData.inventory.dict_select_equip[text] != -1:
+			var temp = PlayerData.inventory.dict_select_equip[text]
+			PlayerData.inventory.inventory_weapon[temp]["equipped"] = false
 		PlayerData.inventory.dict_select_equip[text] = id
+		show_notif("text notif", "Đã trang bị thành công")
 		PlayerData.inventory.inventory_weapon[id]["equipped"] = true
+	load_ui_inventory()
+	PlayerData.load_stats_from_equip()
+	upload_texture_equipped_n_stats_view()
 
 func equip_weapon_sword(index_ivt):
 	id = index_ivt
@@ -117,15 +127,12 @@ func equip_weapon_sword(index_ivt):
 	
 	elif type_weapon == "helmet":
 		equip_in_slot("slot3")
-		show_notif("type_notif", "Đã trang bị thành công")
 	
 	elif type_weapon == "armor":
 		equip_in_slot("slot4")
-		show_notif("type_notif", "Đã trang bị thành công")
 	
 	elif type_weapon == "boots":
 		equip_in_slot("slot5")
-		show_notif("type_notif", "Đã trang bị thành công")
 		
 	upload_texture_equipped_n_stats_view()
 	load_ui_inventory()
@@ -144,39 +151,53 @@ func _on_ok_pressed():
 
 
 func _on_unslot_1_pressed():
-	PlayerData.inventory.dict_select_equip["slot1"] = -1
-	upload_texture_equipped_n_stats_view()
+	un_equip("slot1")
 
 
 func _on_unslot_2_pressed():
-	PlayerData.inventory.dict_select_equip["slot2"] = -1
-	upload_texture_equipped_n_stats_view()
+	un_equip("slot2")
 
 
 func _on_unslot_3_pressed():
-	PlayerData.inventory.dict_select_equip["slot3"] = -1
-	upload_texture_equipped_n_stats_view()
+	un_equip("slot3")
 
 
 func _on_unslot_4_pressed():
-	PlayerData.inventory.dict_select_equip["slot4"] = -1
-	upload_texture_equipped_n_stats_view()
+	un_equip("slot4")
 
 
 func _on_unslot_5_pressed():
-	PlayerData.inventory.dict_select_equip["slot5"] = -1
+	un_equip("slot5")
+
+
+func un_equip(text : String):
+	var temp = PlayerData.inventory.dict_select_equip[text]
+	PlayerData.inventory.inventory_weapon[temp]["equipped"] = false
+	PlayerData.inventory.dict_select_equip[text] = -1
+	load_ui_inventory()
+	PlayerData.load_stats_from_equip()
 	upload_texture_equipped_n_stats_view()
 
 
 func _on_slot_1_pressed():
 	equip_in_slot("slot1")
-	upload_texture_equipped_n_stats_view()
 	$Stop_touch.visible = false
 	$Equip_dual.visible = false
 
 
 func _on_slot_2_pressed():
 	equip_in_slot("slot2")
-	upload_texture_equipped_n_stats_view()
 	$Stop_touch.visible = false
 	$Equip_dual.visible = false
+
+
+func _on_cancel_pressed():
+	$Stop_touch.visible = false
+	$Equip_dual.visible = false
+
+func sell_iteam(index_ivt):
+	if PlayerData.inventory.inventory_weapon[index_ivt]["equipped"] == false:
+		PlayerData.coin.coin += PlayerData.inventory.inventory_weapon[index_ivt]["rank"]*3
+		PlayerData.inventory.inventory_weapon.remove_at(index_ivt)
+		set_coin.text = str(PlayerData.coin.coin)
+		load_ui_inventory()

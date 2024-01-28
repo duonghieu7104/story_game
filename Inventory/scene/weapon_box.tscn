@@ -15,9 +15,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Weapon_box" type="Button"]
-custom_minimum_size = Vector2(320, 80)
-offset_right = 298.0
-offset_bottom = 60.0
+custom_minimum_size = Vector2(267, 80)
+offset_right = 267.0
+offset_bottom = 80.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wsnnd")
 script = ExtResource("1_6wply")
 
@@ -32,10 +32,10 @@ mouse_filter = 1
 
 [node name="Stats" type="Label" parent="Weapon_view"]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 6.0
-offset_right = 277.0
-offset_bottom = 55.0
+offset_left = 68.0
+offset_top = 15.0
+offset_right = 254.0
+offset_bottom = 64.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
@@ -43,10 +43,10 @@ vertical_alignment = 1
 
 [node name="Texture" type="TextureRect" parent="Weapon_view"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 21.0
-offset_right = 63.0
-offset_bottom = 61.0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 59.0
+offset_bottom = 71.0
 scale = Vector2(0.3, 0.3)
 
 [node name="Btn_view" type="Control" parent="."]
@@ -64,27 +64,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = 15.0
-offset_right = -19.0
-offset_bottom = -14.0
+offset_top = 18.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sell" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_xh8rh")
 text = "Sell"
 
 [node name="Equip" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_vioqf")
 text = "Trang bi"
 
 [node name="Cancel" type="Button" parent="Btn_view/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_d1cvp")
 text = "Cancel"
@@ -92,13 +90,14 @@ text = "Cancel"
 [node name="Equipped" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 290.0
-offset_top = 51.0
-offset_right = 418.0
-offset_bottom = 179.0
+offset_left = 233.0
+offset_top = 49.0
+offset_right = 361.0
+offset_bottom = 177.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_hwxv7")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="Btn_view/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="Btn_view/HBoxContainer/Equip" to="." method="_on_equip_pressed"]
 [connection signal="pressed" from="Btn_view/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

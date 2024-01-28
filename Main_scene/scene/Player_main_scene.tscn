@@ -340,8 +340,10 @@ text = "OK"
 
 [node name="Text_notif" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 124.0
+offset_top = 706.0
+offset_right = 338.0
+offset_bottom = 744.0
 
 [node name="Equip_dual" type="Panel" parent="."]
 visible = false
@@ -376,14 +378,19 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Slot1" type="Button" parent="Equip_dual/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(92, 0)
 layout_mode = 2
 text = "Tay Phải"
 
 [node name="Slot2" type="Button" parent="Equip_dual/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(92, 0)
 layout_mode = 2
 text = "Tay Trái"
+
+[node name="Cancel" type="Button" parent="Equip_dual/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
+text = "Huy"
 
 [connection signal="pressed" from="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped/unslot1" to="." method="_on_unslot_1_pressed"]
 [connection signal="pressed" from="Tab_Menu/Inventory/Equipped/Player_Eqiupped/unequipped/unslot2" to="." method="_on_unslot_2_pressed"]
@@ -395,3 +402,4 @@ text = "Tay Trái"
 [connection signal="pressed" from="Panel/VBoxContainer/Ok" to="." method="_on_ok_pressed"]
 [connection signal="pressed" from="Equip_dual/VBoxContainer/HBoxContainer/Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Equip_dual/VBoxContainer/HBoxContainer/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Equip_dual/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

@@ -8,6 +8,7 @@ extends Button
 @export var id : int
 
 signal equip (index_ivt)
+signal sell (index_ivt)
 
 func _ready():
 	pass
@@ -30,3 +31,6 @@ func _on_equip_pressed(): #equip
 	weapon_view.visible = true
 	btn_view.visible = false
 
+
+func _on_sell_pressed():
+	emit_signal("sell", id)
