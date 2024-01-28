@@ -9,12 +9,18 @@ var box_weapon = preload("res://Inventory/scene/weapon_box.tscn")
 var id : int
 
 func _ready():
+	#Inventory and stats
 	PlayerData.load_data()
 	set_coin.text = str(PlayerData.coin.coin)
 	load_ui_inventory()
 	upload_texture_equipped_n_stats_view()
 	if ResourceLoader.exists("user://save_inventory.tres"):
 		PlayerData.load_stats_from_equip()
+	
+	
+	#Turn base
+	$Player_scene/Bar/Health.max_value = PlayerData.hp
+	$Player_scene/Bar/Health.value = PlayerData.hp
 
 func _process(delta):
 	pass
@@ -32,7 +38,7 @@ func load_ui_inventory():
 		ui_inventory.get_child(i).connect("sell", sell_iteam)
 		var temp : String = ""
 		for key in weapon.keys():
-			if key == "texture_path" || key == "type":
+			if key in ["texture_path", "type", "equipped", "rank"]:
 				continue
 			temp += str(key) + ": " + str(weapon[key]) + "\n"
 		instantiate.stats_view.text = temp
@@ -201,3 +207,5 @@ func sell_iteam(index_ivt):
 		PlayerData.inventory.inventory_weapon.remove_at(index_ivt)
 		set_coin.text = str(PlayerData.coin.coin)
 		load_ui_inventory()
+
+#Turn base

@@ -1,7 +1,6 @@
 extends Control
 
-signal text_box
-
+#Enemy
 @export var name_enemy : String
 @export var rank : int
 @export var hp_max : int
@@ -10,10 +9,20 @@ signal text_box
 @export var crichance : int
 @export var cridamge : int
 @export var avatar_path : String
+@export var list_boss = []
+
+#Player
+@onready var player_hp_view = $"../../../../Player_scene/Bar/Health"
+@onready var player_mana_view =  $"../../../../Player_scene/Bar/Mana"
+
+#UI
+@onready var hp_bar_view = $VBoxContainer/HealthBar
+@onready var hp_count_view = $VBoxContainer/HealthBar/Health
+@onready var name_enemy_view = $VBoxContainer/HealthBar/NameEnemy
+@onready var texture_enemy_view = $VBoxContainer/Enemy
 
 func _ready():
-	showMasage(" ")
-	$VBoxContainer/Enemy.texture = load(avatar_path)
+	$"../HBoxContainer/Menu_boss".get_popup().id_pressed.connect(send_path)
 
 func _process(delta):
 	pass
@@ -29,8 +38,49 @@ func load_enemy(path):
 	cridamge = enemy.cridamge
 	avatar_path = enemy.avatar_path
 
-func showMasage(text):
-	$TextHere.text = text
+func load_enemy_to_scene():
+	hp_bar_view.max_value = hp_max
+	hp_bar_view.value = hp_max
+	hp_count_view.text = "HP " + str(hp_bar_view.value) + "/" + str(hp_bar_view.max_value)
+	name_enemy_view.text = name_enemy
+	texture_enemy_view.texture = load(avatar_path)
 
-func _on_run_pressed():
-	showMasage(" RUN ")
+
+func send_path(id):
+	load_enemy(list_boss[id])
+	$".".visible = true
+	load_enemy_to_scene()
+
+func cri_chance_n_cridamge(atk : int, chance : int, damge : int):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var number = rng.randi_range (1, 100)
+	if number <= chance:
+		return PlayerData.atk * (100 + damge)/100
+	return PlayerData.atk
+
+func enemy_get_damge():
+	var damge = cri_chance_n_cridamge(PlayerData.atk, PlayerData.crichange, PlayerData.cridamge)
+	hp_bar_view.value -= damge
+	print(damge)
+	hp_count_view.text = "HP " + str(hp_bar_view.value) + "/" + str(hp_bar_view.max_value)
+	if hp_bar_view.value <= 0:
+		$".".visible = false
+		#reward
+	player_hp_view.value = PlayerData.hp
+
+func enemy_take_damge():
+	var damge = cri_chance_n_cridamge(atk, crichance, cridamge)
+	player_hp_view.value -= damge
+	if player_hp_view.value <= 0:
+		$".".visible = false
+		#LOSE
+
+func _on_attack_pressed():
+	enemy_get_damge()
+	
+func win_battle():
+	pass
+
+func lose_battle():
+	pass

@@ -58,6 +58,7 @@ func load_stats_from_equip():
 			var temp = inventory.inventory_weapon[idx]
 			if key in temp:
 				list_equipped[key] += temp[key]
+	
 
 func load_stats_to_current():
 	pass

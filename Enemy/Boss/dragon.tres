@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://cy6e5dq6lkigp"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_um33o"]
+
+[resource]
+script = ExtResource("1_um33o")
+name = "Dragon"
+rank = 5
+hp_max = 30
+spd = 5
+atk = 35
+crichance = 45
+cridamge = 50
+avatar_path = "res://icon.svg"
