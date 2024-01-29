@@ -27,14 +27,14 @@ func load_data():
 		print("Khong tim thay file")
 
 #Stats
-@export var hp : int = 20
-@export var mana : int = 10
-@export var atk : int = 5
-@export var s_atk : int = 0
-@export var def : int = 5
+@export var hp : int 
+@export var mana : int
+@export var atk : int
+@export var s_atk : int
+@export var def : int
 @export var spd : int
-@export var crichange : int = 10
-@export var cridamge : int = 10
+@export var crichange : int
+@export var cridamge : int
 
 @export var list_equipped : Dictionary = {
 	"atk" : 0,
@@ -61,5 +61,5 @@ func load_stats_from_equip():
 	
 
 func load_stats_to_current():
-	pass
-
+	hp = stats.hp + list_equipped["hp"]
+	atk = stats.atk + list_equipped["atk"]

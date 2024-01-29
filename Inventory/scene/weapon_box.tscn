@@ -43,11 +43,11 @@ vertical_alignment = 1
 
 [node name="Texture" type="TextureRect" parent="Weapon_view"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 31.0
-offset_right = 59.0
-offset_bottom = 71.0
-scale = Vector2(0.3, 0.3)
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 669.0
+offset_bottom = 638.0
+scale = Vector2(0.1, 0.1)
 
 [node name="Btn_view" type="Control" parent="."]
 visible = false

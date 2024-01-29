@@ -17,6 +17,8 @@ func _ready():
 	if ResourceLoader.exists("user://save_inventory.tres"):
 		PlayerData.load_stats_from_equip()
 	
+	PlayerData.load_stats_to_current()
+	
 	
 	#Turn base
 	$Player_scene/Bar/Health.max_value = PlayerData.hp
@@ -90,7 +92,9 @@ func equip_in_slot(text : String):
 		PlayerData.inventory.inventory_weapon[id]["equipped"] = true
 	load_ui_inventory()
 	PlayerData.load_stats_from_equip()
+	PlayerData.load_stats_to_current()
 	upload_texture_equipped_n_stats_view()
+	
 
 func equip_weapon_sword(index_ivt):
 	id = index_ivt
@@ -182,6 +186,7 @@ func un_equip(text : String):
 	PlayerData.inventory.dict_select_equip[text] = -1
 	load_ui_inventory()
 	PlayerData.load_stats_from_equip()
+	PlayerData.load_stats_to_current()
 	upload_texture_equipped_n_stats_view()
 
 
