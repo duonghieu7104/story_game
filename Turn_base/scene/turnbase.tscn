@@ -1,66 +1,89 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyrcq42u8wlg0"]
+[gd_scene load_steps=25 format=3 uid="uid://cyrcq42u8wlg0"]
 
-[ext_resource type="Texture2D" uid="uid://o22vux85mj0r" path="res://Turn_base/asset/battleback1_0.png" id="1_4tum5"]
 [ext_resource type="Script" path="res://Turn_base/script/turnbase.gd" id="1_nca5i"]
-[ext_resource type="Texture2D" uid="uid://mg58x6xlc714" path="res://Turn_base/asset/knight.png" id="3_xpti7"]
+[ext_resource type="Texture2D" uid="uid://xs66x1qjgthp" path="res://Asset/bg3.png" id="2_6go6v"]
+[ext_resource type="FontFile" uid="uid://c3g1lh6pf4u6q" path="res://Font/BLOODY.ttf" id="3_5l7e1"]
+[ext_resource type="Texture2D" uid="uid://c0jy7wpg685bd" path="res://Asset/dragon.png" id="3_fmmpb"]
+[ext_resource type="Texture2D" uid="uid://b7nak02xt6xld" path="res://Asset/bg5.png" id="3_ftlao"]
+[ext_resource type="Texture2D" uid="uid://cp8sayct135jn" path="res://Asset/btn_atk.png" id="5_3sdf5"]
+[ext_resource type="Texture2D" uid="uid://cdljqay6ulrt8" path="res://Asset/btn_press_atk.png" id="6_frumh"]
+[ext_resource type="Texture2D" uid="uid://y0wkciog2beh" path="res://Asset/btn_run.png" id="7_fsi0o"]
+[ext_resource type="Texture2D" uid="uid://rdtndsotr0jj" path="res://Asset/btn_press_run.png" id="8_vgb5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ge6n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4asnp"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0inlu"]
-bg_color = Color(0, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_732u7"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtrjt"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0inlu"]
+bg_color = Color(1, 0.141176, 0.141176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwdsw"]
+texture = ExtResource("5_3sdf5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6o5a4"]
+texture = ExtResource("6_frumh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2a2e"]
+texture = ExtResource("6_frumh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_343yw"]
+texture = ExtResource("6_frumh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7mjj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="Animation" id="Animation_4ru1l"]
-resource_name = "enemy_get_damge"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/Enemy:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkkxh"]
+texture = ExtResource("7_fsi0o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1gho"]
+texture = ExtResource("8_vgb5y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3w54"]
+texture = ExtResource("8_vgb5y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehivw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_ojmoh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/Enemy:modulate")
+tracks/0/path = NodePath("Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4ru1l"]
+resource_name = "enemy_get_damge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 0, 0, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2pdjy"]
@@ -70,13 +93,13 @@ _data = {
 }
 
 [node name="Turnbase" type="Control"]
-custom_minimum_size = Vector2(640, 811)
+custom_minimum_size = Vector2(648, 648)
 layout_mode = 3
-anchor_top = 0.248
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.809
-offset_top = 55.304
-offset_bottom = 220.032
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = -404.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nca5i")
@@ -89,23 +112,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_4tum5")
+texture = ExtResource("2_6go6v")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 84.0
-offset_top = -282.5
-offset_right = -89.0
-offset_bottom = 297.5
+[node name="Enemy" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 193.0
+offset_top = 170.0
+offset_right = 483.0
+offset_bottom = 420.0
+texture = ExtResource("3_fmmpb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 648.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 45
+texture = ExtResource("3_ftlao")
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 413.0
+offset_top = -70.0
+offset_right = 613.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("3_5l7e1")
+theme_override_font_sizes/font_size = 45
+text = "HP 50"
+
+[node name="NameEnemy" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -70.0
+offset_right = 240.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("3_5l7e1")
+theme_override_font_sizes/font_size = 45
+text = "Name"
+
+[node name="Player" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.306
+anchor_top = 0.696
+anchor_right = 0.737
+anchor_bottom = 0.918
+offset_left = -0.28801
+offset_top = -0.00802612
+offset_right = 31.424
+offset_bottom = 16.136
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ge6n")
+
+[node name="Action" type="VBoxContainer" parent="Player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.243
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -36.6578
+offset_right = -8.99997
+offset_bottom = 2.2222
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HealthBar" type="ProgressBar" parent="Player/Action"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/background = SubResource("StyleBoxFlat_4asnp")
@@ -114,83 +193,19 @@ step = 1.0
 value = 30.0
 show_percentage = false
 
-[node name="Health" type="Label" parent="VBoxContainer/HealthBar"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = -48.0
-offset_right = 306.0
-offset_bottom = -3.0
-theme_override_font_sizes/font_size = 30
-text = "HP 50/100"
-
-[node name="NameEnemy" type="Label" parent="VBoxContainer/HealthBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -50.0
-offset_right = 88.0
-offset_bottom = -5.0
-theme_override_font_sizes/font_size = 30
-text = "Name"
-
-[node name="Enemy" type="TextureRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 500)
-layout_mode = 2
-texture = ExtResource("3_xpti7")
-
-[node name="Player" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = -99.0
-offset_right = 35.0
-offset_bottom = -28.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.9, 0.9)
-
-[node name="Action" type="HBoxContainer" parent="Player"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-
 [node name="Attack" type="Button" parent="Player/Action"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_732u7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dtrjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hwdsw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6o5a4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l2a2e")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_343yw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_x7mjj")
 
-[node name="Text_Attack" type="Label" parent="Player/Action/Attack"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -22.5
-offset_right = 32.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.00823, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 20
-text = "Attack
-"
-
 [node name="Time" type="Label" parent="Player/Action/Attack"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -208,16 +223,17 @@ text = "0.5s"
 autostart = true
 
 [node name="Run" type="Button" parent="Player/Action"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_732u7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dtrjt")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dtrjt")
-text = "Run"
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_rkkxh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k1gho")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h3w54")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ehivw")
 
 [node name="TextHere" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -245,6 +261,7 @@ one_shot = true
 one_shot = true
 
 [node name="test" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 63.0

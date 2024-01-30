@@ -16,13 +16,17 @@ func _ready():
 	upload_texture_equipped_n_stats_view()
 	if ResourceLoader.exists("user://save_inventory.tres"):
 		PlayerData.load_stats_from_equip()
-	
+	PlayerData.stats.load_stats()
 	PlayerData.load_stats_to_current()
 	
 	
 	#Turn base
 	$Player_scene/Bar/Health.max_value = PlayerData.hp
 	$Player_scene/Bar/Health.value = PlayerData.hp
+	
+	#Infor
+	$Player_scene/Bar/HBoxContainer/Lv.text = "Lv: " + str(PlayerData.stats.lv)
+	$Player_scene/Bar/HBoxContainer/Coin.text = str(PlayerData.coin.coin)
 
 func _process(delta):
 	pass
@@ -58,14 +62,14 @@ func upload_texture_equipped_n_stats_view():
 		i += 1
 		var index = PlayerData.inventory.dict_select_equip[key]
 		if index == -1:
-			ui_equipped.get_child(i).texture = null
+			ui_equipped.get_child(i).texture = load("res://Asset/icon_weapon/icon_null.jpg")
 			ui_stats_view.get_child(i).text = ""
 			continue
 		var weapon = PlayerData.inventory.inventory_weapon[index]
 		var path = weapon["texture_path"]
 		var temp = ""
 		for key_dict in weapon.keys():
-			if key_dict in ["rank", "type", "texture_path"]:
+			if key_dict in ["rank", "type", "texture_path", "equipped"]:
 				continue
 			temp += str(key_dict) + ": " + str(weapon[key_dict]) + " "
 		ui_equipped.get_child(i).texture = load(path)
@@ -185,7 +189,6 @@ func un_equip(text : String):
 	PlayerData.inventory.inventory_weapon[temp]["equipped"] = false
 	PlayerData.inventory.dict_select_equip[text] = -1
 	load_ui_inventory()
-	PlayerData.load_stats_from_equip()
 	PlayerData.load_stats_to_current()
 	upload_texture_equipped_n_stats_view()
 
@@ -213,4 +216,9 @@ func sell_iteam(index_ivt):
 		set_coin.text = str(PlayerData.coin.coin)
 		load_ui_inventory()
 
-#Turn base
+
+func _on_button_4_pressed():
+	PlayerData.get_exp(50)
+
+#Get Item Random
+

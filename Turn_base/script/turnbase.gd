@@ -16,10 +16,10 @@ extends Control
 @onready var player_mana_view =  $"../../../../Player_scene/Bar/Mana"
 
 #UI
-@onready var hp_bar_view = $VBoxContainer/HealthBar
-@onready var hp_count_view = $VBoxContainer/HealthBar/Health
-@onready var name_enemy_view = $VBoxContainer/HealthBar/NameEnemy
-@onready var texture_enemy_view = $VBoxContainer/Enemy
+@onready var hp_bar_view = $Player/Action/HealthBar
+@onready var hp_count_view = $Health
+@onready var name_enemy_view = $NameEnemy
+@onready var texture_enemy_view = $Enemy
 
 func _ready():
 	$"../HBoxContainer/Menu_boss".get_popup().id_pressed.connect(send_path)
@@ -42,7 +42,7 @@ func load_enemy_to_scene():
 	player_hp_view.value = PlayerData.hp
 	hp_bar_view.max_value = hp_max
 	hp_bar_view.value = hp_max
-	hp_count_view.text = "HP " + str(hp_bar_view.value) + "/" + str(hp_bar_view.max_value)
+	hp_count_view.text = "HP " + str(hp_bar_view.value) #+ "/" + str(hp_bar_view.max_value)
 	name_enemy_view.text = name_enemy
 	texture_enemy_view.texture = load(avatar_path)
 	$Player/Action/Attack.disabled = true
@@ -63,13 +63,15 @@ func cri_chance_n_cridamge(atk : int, chance : int, damge : int):
 	return atk
 
 func enemy_get_damge():
-	var damge = cri_chance_n_cridamge(PlayerData.atk, PlayerData.crichange, PlayerData.cridamge)
+	var damge = cri_chance_n_cridamge(PlayerData.atk, PlayerData.crichance, PlayerData.cridamge)
 	hp_bar_view.value -= damge
 	print(damge)
-	hp_count_view.text = "HP " + str(hp_bar_view.value) + "/" + str(hp_bar_view.max_value)
+	hp_count_view.text = "HP " + str(hp_bar_view.value) #+ "/" + str(hp_bar_view.max_value)
 	$AnimationPlayer.play("enemy_get_damge")
 	if hp_bar_view.value <= 0:
 		$Enemy_cooldown.stop()
+		var timer = get_tree().create_timer(3)
+		await timer.timeout
 		$".".visible = false
 		#reward
 
@@ -79,6 +81,8 @@ func enemy_take_damge():
 	player_hp_view.value -= damge
 	if player_hp_view.value <= 0:
 		$Enemy_cooldown.stop()
+		var timer = get_tree().create_timer(3)
+		await timer.timeout
 		$".".visible = false
 		#LOSE
 	else:

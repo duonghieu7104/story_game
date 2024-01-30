@@ -20,9 +20,10 @@ func save_data():
 	ResourceSaver.save(stats, save_file_path + save_file_name_stats)
 
 func load_data():
-	if ResourceLoader.exists(save_file_path + save_file_name_inventory):
+	if ResourceLoader.exists(save_file_path + save_file_name_inventory) and ResourceLoader.exists(save_file_path + save_file_name_stats):
 		print("Da Load")
 		inventory = ResourceLoader.load(save_file_path + save_file_name_inventory).duplicate(true)
+		stats = ResourceLoader.load(save_file_path + save_file_name_stats).duplicate(true)
 	else:
 		print("Khong tim thay file")
 
@@ -33,7 +34,7 @@ func load_data():
 @export var s_atk : int
 @export var def : int
 @export var spd : int
-@export var crichange : int
+@export var crichance : int
 @export var cridamge : int
 
 @export var list_equipped : Dictionary = {
@@ -61,5 +62,25 @@ func load_stats_from_equip():
 	
 
 func load_stats_to_current():
+	stats.load_stats()
+	load_stats_from_equip()
 	hp = stats.hp + list_equipped["hp"]
+	mana = stats.mana + list_equipped["mana"]
 	atk = stats.atk + list_equipped["atk"]
+	s_atk = stats.s_atk + list_equipped["s_atk"]
+	spd = stats.spd + list_equipped["spd"]
+	def = stats.def + list_equipped["def"]
+	crichance = stats.crichance + list_equipped["crichance"]
+	cridamge = stats.cridamge + list_equipped["cridamge"]
+
+
+#Lv + exp
+func get_exp(exps : int):
+	stats.exp_current += exps
+	while stats.exp_current >= stats.exp_total:
+		stats.lv += 1
+		stats.exp_current -= stats.exp_total
+		stats.exp_total = stats.exp_total * 1.02
+	stats.load_stats()
+	load_stats_to_current()
+	

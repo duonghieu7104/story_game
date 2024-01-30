@@ -15,6 +15,8 @@ class_name Inventory_weapon
 	"slot5" : -1
 }
 
+@export var material : int = 0
+
 #them iteam vao list
 func add_item_to_Inventory(item):
 	inventory_weapon.append(item)
