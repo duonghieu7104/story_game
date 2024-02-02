@@ -233,21 +233,26 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_h3w54")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ehivw")
 
 [node name="TextHere" type="Label" parent="."]
-visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = 176.0
-offset_right = 69.0
-offset_bottom = 221.0
+anchors_preset = -1
+anchor_left = 0.407
+anchor_top = 0.404
+anchor_right = 0.662
+anchor_bottom = 0.579
+offset_left = 0.264008
+offset_top = 0.207977
+offset_right = 0.0239563
+offset_bottom = -0.192047
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Text Here!!!"
+theme_override_colors/font_color = Color(0.988235, 0.847059, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_5l7e1")
+theme_override_font_sizes/font_size = 100
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

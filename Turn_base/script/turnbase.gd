@@ -46,8 +46,15 @@ func load_enemy_to_scene():
 	name_enemy_view.text = name_enemy
 	texture_enemy_view.texture = load(avatar_path)
 	$Player/Action/Attack.disabled = true
-	$Timer.wait_time = 3
-	$Timer.start()
+#	$Timer.wait_time = 3
+#	$Timer.start()
+	for i in 3:
+		$TextHere.text = str(4-(i+1))
+		var timer = get_tree().create_timer(1)
+		await timer.timeout
+	$TextHere.text = ""
+	$Player/Action/Attack.disabled = false
+	enemy_take_damge()
 
 func send_path(id):
 	load_enemy(list_boss[id])
