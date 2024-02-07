@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmx4ncm8ccrvp"]
+[gd_scene load_steps=18 format=3 uid="uid://dmx4ncm8ccrvp"]
 
 [ext_resource type="Script" path="res://Main_scene/script/Player_main_scene.gd" id="1_c2k32"]
 [ext_resource type="Texture2D" uid="uid://c04cym3y3ofdd" path="res://Asset/avatar.jpg" id="2_v2x5g"]
 [ext_resource type="Texture2D" uid="uid://boyg3flbrl3wi" path="res://Asset/icon_weapon/icon_null.jpg" id="3_v0ks8"]
 [ext_resource type="PackedScene" uid="uid://cyrcq42u8wlg0" path="res://Turn_base/scene/turnbase.tscn" id="3_xnuui"]
+[ext_resource type="Script" path="res://Main_scene/script/tab_chat.gd" id="5_c7l2x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umbtt"]
 bg_color = Color(0, 0, 0, 1)
@@ -426,9 +427,11 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="AI Chat" type="Control" parent="Tab_Menu"]
+[node name="Chat" type="TabBar" parent="Tab_Menu"]
 visible = false
+custom_minimum_size = Vector2(648, 648)
 layout_mode = 2
+script = ExtResource("5_c7l2x")
 
 [node name="Stop_touch" type="Panel" parent="."]
 visible = false
@@ -536,7 +539,6 @@ layout_mode = 2
 text = "Huy"
 
 [node name="Button4" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 172.0
 offset_top = 6.0
@@ -545,7 +547,6 @@ offset_bottom = 27.0
 text = "get exp"
 
 [node name="Button2" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 91.0
 offset_top = 2.0
@@ -554,7 +555,6 @@ offset_bottom = 33.0
 text = "save"
 
 [node name="Button" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 78.0
 offset_bottom = 31.0

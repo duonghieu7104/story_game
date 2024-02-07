@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://7s4mfj2hxpd5"]
+
+[ext_resource type="Script" path="res://Chat/script/Chat.gd" id="1_seg31"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8pby"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65ij5"]
+bg_color = Color(0.6, 0.6, 0.6, 0.686275)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66eb0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otw33"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu4el"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpti4"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6tkk"]
+bg_color = Color(0.0666667, 0.666667, 0.807843, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Chat" type="Control"]
+custom_minimum_size = Vector2(648, 876)
+layout_mode = 3
+anchor_top = 0.161
+anchor_right = 1.0
+anchor_bottom = 0.922
+offset_top = 0.527985
+offset_bottom = -0.144043
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_seg31")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8pby")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.059
+anchor_right = 1.0
+anchor_bottom = 0.767
+offset_left = 36.0
+offset_top = -0.232002
+offset_right = -33.0
+offset_bottom = -0.0160217
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_65ij5")
+
+[node name="chat" type="ItemList" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.044
+anchor_right = 0.977
+anchor_bottom = 0.954
+offset_left = 30.0
+offset_top = -0.196001
+offset_right = -22.683
+offset_bottom = 0.113983
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/guide_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/panel = SubResource("StyleBoxFlat_66eb0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_otw33")
+
+[node name="messege" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 702.0
+offset_right = 517.0
+offset_bottom = 737.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tu4el")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dpti4")
+
+[node name="send" type="Button" parent="."]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 703.0
+offset_right = 606.0
+offset_bottom = 738.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n6tkk")
+text = "SEND"
+
+[connection signal="pressed" from="send" to="." method="_on_send_pressed"]

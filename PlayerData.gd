@@ -18,12 +18,14 @@ func generate_item(type : String, texture_path : String, rank: int, equipped : b
 func save_data():
 	ResourceSaver.save(inventory, save_file_path + save_file_name_inventory)
 	ResourceSaver.save(stats, save_file_path + save_file_name_stats)
+	ResourceSaver.save(coin, save_file_path + save_file_name_coin)
 
 func load_data():
-	if ResourceLoader.exists(save_file_path + save_file_name_inventory) and ResourceLoader.exists(save_file_path + save_file_name_stats):
+	if ResourceLoader.exists(save_file_path + save_file_name_inventory) and ResourceLoader.exists(save_file_path + save_file_name_stats) and ResourceLoader.exists(save_file_path + save_file_name_coin):
 		print("Da Load")
 		inventory = ResourceLoader.load(save_file_path + save_file_name_inventory).duplicate(true)
 		stats = ResourceLoader.load(save_file_path + save_file_name_stats).duplicate(true)
+		coin = ResourceLoader.load(save_file_path + save_file_name_coin).duplicate(true)
 	else:
 		print("Khong tim thay file")
 

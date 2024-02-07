@@ -11,7 +11,6 @@ var id : int
 func _ready():
 	#Inventory and stats
 	PlayerData.load_data()
-	set_coin.text = str(PlayerData.coin.coin)
 	load_ui_inventory()
 	upload_texture_equipped_n_stats_view()
 	if ResourceLoader.exists("user://save_inventory.tres"):
@@ -26,7 +25,7 @@ func _ready():
 	
 	#Infor
 	$Player_scene/Bar/HBoxContainer/Lv.text = "Lv: " + str(PlayerData.stats.lv)
-	$Player_scene/Bar/HBoxContainer/Coin.text = str(PlayerData.coin.coin)
+	$Player_scene/Bar/HBoxContainer/Coin.text = "$ " + str(PlayerData.coin.coin)
 
 func _process(delta):
 	pass

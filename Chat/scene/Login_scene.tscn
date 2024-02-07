@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://72i1rq5e304e"]
+
+[ext_resource type="Script" path="res://Chat/script/Login_scene.gd" id="1_sc4kt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbnyt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Login_scene" type="Control"]
+custom_minimum_size = Vector2(648, 648)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1052.0
+offset_bottom = -404.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("1_sc4kt")
+
+[node name="Panel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.296
+anchor_right = 0.944
+anchor_bottom = 0.428
+offset_left = -0.200001
+offset_top = 0.192001
+offset_right = 15.288
+offset_bottom = 35.656
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="mail" type="LineEdit" parent="Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbnyt")
+placeholder_text = "Mail"
+alignment = 1
+
+[node name="username" type="LineEdit" parent="Panel"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbnyt")
+placeholder_text = "User Name"
+alignment = 1
+
+[node name="login" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.443
+anchor_top = 0.46
+anchor_right = 0.563
+anchor_bottom = 0.508
+offset_left = -0.0640259
+offset_top = -0.0800171
+offset_right = 0.175995
+offset_bottom = -0.184021
+text = "LOGIN"
+
+[connection signal="pressed" from="login" to="." method="_on_login_pressed"]
