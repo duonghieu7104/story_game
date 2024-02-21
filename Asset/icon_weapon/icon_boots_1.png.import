@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boyg3flbrl3wi"
-path="res://.godot/imported/icon_null.jpg-2f9d06a956a868a7cf9a4761217be956.ctex"
+uid="uid://bf8dpb0xavsfr"
+path="res://.godot/imported/icon_boots_1.png-1b802b39dbb6054b495fb468fc12b612.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/icon_weapon/icon_null.jpg"
-dest_files=["res://.godot/imported/icon_null.jpg-2f9d06a956a868a7cf9a4761217be956.ctex"]
+source_file="res://Asset/icon_weapon/icon_boots_1.png"
+dest_files=["res://.godot/imported/icon_boots_1.png-1b802b39dbb6054b495fb468fc12b612.ctex"]
 
 [params]
 

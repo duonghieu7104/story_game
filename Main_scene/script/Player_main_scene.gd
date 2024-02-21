@@ -61,7 +61,7 @@ func upload_texture_equipped_n_stats_view():
 		i += 1
 		var index = PlayerData.inventory.dict_select_equip[key]
 		if index == -1:
-			ui_equipped.get_child(i).texture = load("res://Asset/icon_weapon/icon_null.jpg")
+			ui_equipped.get_child(i).texture = load("res://Asset/icon_weapon/icon_null.png")
 			ui_stats_view.get_child(i).text = ""
 			continue
 		var weapon = PlayerData.inventory.inventory_weapon[index]
@@ -75,9 +75,11 @@ func upload_texture_equipped_n_stats_view():
 		ui_stats_view.get_child(i).text = temp
 
 func _on_button_pressed():
-	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"atk" : 5})
-	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"def" : 6})
-	PlayerData.inventory.generate_item("dual_sword", "res://icon.svg", 45, false,{"spd" : 7})
+	PlayerData.inventory.generate_item("sword", "res://Asset/icon_weapon/icon_sword_1.png", 45, false,{"atk" : 5})
+	PlayerData.inventory.generate_item("shield", "res://Asset/icon_weapon/icon_shield_1.png", 45, false,{"def" : 6})
+	PlayerData.inventory.generate_item("helmet", "res://Asset/icon_weapon/icon_helmet_1.png", 45, false,{"hp" : 10})
+	PlayerData.inventory.generate_item("armor", "res://Asset/icon_weapon/icon_armor_1.png", 45, false,{"def" : 7})
+	PlayerData.inventory.generate_item("boots", "res://Asset/icon_weapon/icon_boots_1.png", 45, false,{"spd" : 7})
 	load_ui_inventory()
 
 func _on_button_2_pressed():

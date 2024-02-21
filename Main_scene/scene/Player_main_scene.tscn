@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main_scene/script/Player_main_scene.gd" id="1_c2k32"]
 [ext_resource type="Texture2D" uid="uid://c04cym3y3ofdd" path="res://Asset/avatar.jpg" id="2_v2x5g"]
-[ext_resource type="Texture2D" uid="uid://boyg3flbrl3wi" path="res://Asset/icon_weapon/icon_null.jpg" id="3_v0ks8"]
+[ext_resource type="Texture2D" uid="uid://brbqpcu05jv5g" path="res://Asset/icon_weapon/icon_null.png" id="3_5hh4k"]
 [ext_resource type="PackedScene" uid="uid://cyrcq42u8wlg0" path="res://Turn_base/scene/turnbase.tscn" id="3_xnuui"]
 [ext_resource type="Script" path="res://Main_scene/script/tab_chat.gd" id="5_c7l2x"]
 
@@ -236,31 +236,31 @@ theme_override_constants/separation = 5
 [node name="TextureRect" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_v0ks8")
+texture = ExtResource("3_5hh4k")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_v0ks8")
+texture = ExtResource("3_5hh4k")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_v0ks8")
+texture = ExtResource("3_5hh4k")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_v0ks8")
+texture = ExtResource("3_5hh4k")
 expand_mode = 1
 
 [node name="TextureRect5" type="TextureRect" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped/Texture"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("3_v0ks8")
+texture = ExtResource("3_5hh4k")
 expand_mode = 1
 
 [node name="Stats" type="VBoxContainer" parent="Tab_Menu/Inventory/Equipped/Player_Eqiupped/Texture_equipped"]

@@ -20,5 +20,7 @@ func _on_login_pressed():
 	PlayerData.coin.PlayerName = $Panel/username.text
 	PlayerData.coin.mail = $Panel/mail.text
 	PlayerData.save_data()
-	await FirebaseLite.Authentication.initializeAuth(1)
-	get_tree().change_scene_to_file("res://Chat/scene/Chat.tscn")
+	var password = $Panel/Pass.text
+	await FirebaseLite.Authentication.initializeAuth(2, PlayerData.coin.mail, password )
+	await FirebaseLite.Authentication.initializeAuth(3, PlayerData.coin.mail, password)
+	get_tree().change_scene_to_file("res://Main_scene/scene/Player_main_scene.tscn")
